@@ -5,6 +5,8 @@ DeliverUS is a made-up company whose business is focused on delivering food from
 
 Check https://github.com/IISSI2-IS/DeliverUS-Backend for full DeliverUS app requirements.
 
+**Complete this project template of the frontend app for customers in order to fulfill customer related requirements.**
+
 # Frontend deployment steps:
 1. Accept the group project assignment of your github classroom if you have not done it before. Once you accepted it, you will have your own copy of this project template.
 2. Clone your private repository at your local development environment by opening VScode and clone it by opening Command Palette (Ctrl+Shift+P or F1) and `Git clone` this repository, or using the terminal and running
