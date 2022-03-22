@@ -5,7 +5,7 @@ function login (data) {
 }
 
 function register (data) {
-  return post('users/registerOwner', data)
+  return post('users/register', data)
 }
 
 function update (data) {

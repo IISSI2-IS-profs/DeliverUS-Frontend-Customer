@@ -5,7 +5,7 @@ import React, { useContext, useEffect } from 'react'
 import { flashStyle, flashTextStyle, navigationTheme } from '../styles/GlobalStyles'
 import RestaurantsStack from './restaurants/RestaurantsStack'
 import ProfileStack from './profile/ProfileStack'
-import ControlPanelScreen from './controlPanel/ControlPanelScreen'
+import OrdersStack from './orders/OrdersStack'
 
 // eslint-disable-next-line camelcase
 import { useFonts, Montserrat_400Regular, Montserrat_600SemiBold } from '@expo-google-fonts/montserrat'
@@ -69,9 +69,9 @@ export default function Layout () {
         // eslint-disable-next-line react/display-name
         tabBarIcon: ({ color, size }) => {
           let iconName
-          if (route.name === 'My Restaurants') {
+          if (route.name === 'Restaurants') {
             iconName = 'silverware-fork-knife'
-          } else if (route.name === 'Control Panel') {
+          } else if (route.name === 'My Orders') {
             iconName = 'view-dashboard'
           } else if (route.name === 'Profile') {
             iconName = 'account-circle'
@@ -81,12 +81,12 @@ export default function Layout () {
         headerShown: false
       })}>
         <Tab.Screen
-          name='My Restaurants'
+          name='Restaurants'
           component={RestaurantsStack}
         />
         <Tab.Screen
-          name='Control Panel'
-          component={ControlPanelScreen} />
+          name='My Orders'
+          component={OrdersStack} />
         <Tab.Screen
           name='Profile'
           component={ProfileStack} />

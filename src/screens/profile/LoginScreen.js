@@ -28,7 +28,7 @@ export default function LoginScreen ({ navigation }) {
     setBackendErrors([])
     signIn(values,
       (loggedInUser) => {
-        loggedInUser.userType === 'owner'
+        loggedInUser.userType === 'customer'
           ? showMessage({
             message: `Welcome back ${loggedInUser.firstName}.`,
             type: 'success',
@@ -36,7 +36,7 @@ export default function LoginScreen ({ navigation }) {
             titleStyle: flashTextStyle
           })
           : showMessage({
-            message: `Welcome back ${loggedInUser.firstName}. You are not an owner.`,
+            message: `Welcome back ${loggedInUser.firstName}. You are not a customer.`,
             type: 'warning',
             style: flashStyle,
             titleStyle: flashTextStyle
@@ -60,7 +60,7 @@ export default function LoginScreen ({ navigation }) {
             <InputItem
               name='email'
               label='email:'
-              placeholder='owner1@owner.com'
+              placeholder='customer1@customer.com'
               textContentType='emailAddress'
             />
             <InputItem

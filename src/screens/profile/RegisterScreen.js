@@ -139,7 +139,7 @@ export default function RegisterScreen () {
                         name='email'
                         label='Email'
                         textContentType='emailAddress'
-                        placeholder="owner1@owner.com"
+                        placeholder="customer@customer.com"
                       />
                       <InputItem
                         name='password'

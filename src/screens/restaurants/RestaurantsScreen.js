@@ -1,94 +1,54 @@
 /* eslint-disable react/prop-types */
-import React, { useContext, useEffect, useState } from 'react'
-import { StyleSheet, FlatList, Pressable } from 'react-native'
-import { getAll } from '../../api/RestaurantEndpoints'
-import ImageCard from '../../components/ImageCard'
+import React, { useEffect } from 'react'
+import { StyleSheet, View, Pressable } from 'react-native'
 import TextSemiBold from '../../components/TextSemibold'
 import TextRegular from '../../components/TextRegular'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { brandPrimary, brandPrimaryTap, brandSecondary, flashStyle, flashTextStyle } from '../../styles/GlobalStyles'
-import { AuthorizationContext } from '../../context/AuthorizationContext'
-import { showMessage } from 'react-native-flash-message'
+import { brandPrimary, brandPrimaryTap, brandSecondary } from '../../styles/GlobalStyles'
 
 export default function RestaurantsScreen ({ navigation, route }) {
-  const [restaurants, setRestaurants] = useState([])
-  const { loggedInUser } = useContext(AuthorizationContext)
+  // TODO: Create a state for storing the restaurants
 
   useEffect(() => {
+    // TODO: Fetch all restaurants and set them to state.
+    //      Notice that it is not required to be logged in.
+
     async function fetchRestaurants () {
-      // TODO: Fetch all restaurants and set them to state.
-      //      Notice that it is not required to be logged in.
 
     }
-    fetchRestaurants()
   }, [route])
 
-  const renderRestaurant = ({ item }) => {
-    return (
-      <ImageCard
-        imageUri={item.logo ? { uri: process.env.API_BASE_URL + '/' + item.logo } : undefined}
-        title={item.name}
-        onPress={() => {
-          navigation.navigate('RestaurantDetailScreen', { id: item.id })
-        }}
-      >
-        <TextRegular numberOfLines={2}>{item.description}</TextRegular>
-        {item.averageServiceMinutes !== null &&
-          <TextSemiBold>Avg. service time: <TextSemiBold textStyle={{ color: brandPrimary }}>{item.averageServiceMinutes} min.</TextSemiBold></TextSemiBold>
-        }
-        <TextSemiBold>Shipping: <TextSemiBold textStyle={{ color: brandPrimary }}>{item.shippingCosts.toFixed(2)}€</TextSemiBold></TextSemiBold>
-      </ImageCard>
-    )
-  }
-
-  const renderEmptyRestaurantsList = () => {
-    return (
-      <TextRegular textStyle={styles.emptyList}>
-        No restaurants were retreived. Are you logged in?
-      </TextRegular>
-    )
-  }
-
-  const renderHeader = () => {
-    return (
-      <>
-      {loggedInUser &&
-      <Pressable
-        onPress={() => navigation.navigate('CreateRestaurantScreen')
-        }
-        style={({ pressed }) => [
-          {
-            backgroundColor: pressed
-              ? brandPrimaryTap
-              : brandPrimary
-          },
-          styles.button
-        ]}>
-        <MaterialCommunityIcons name='plus-circle' color={brandSecondary} size={20}/>
-        <TextRegular textStyle={styles.text}>
-          Create restaurant
-        </TextRegular>
-      </Pressable>
-    }
-    </>
-    )
-  }
-
   return (
-    <FlatList
-      style={styles.container}
-      data={restaurants}
-      renderItem={renderRestaurant}
-      keyExtractor={item => item.id.toString()}
-      ListHeaderComponent={renderHeader}
-      ListEmptyComponent={renderEmptyRestaurantsList}
-    />
+    <View style={styles.container}>
+     <TextSemiBold>FR1: Restaurants listing.</TextSemiBold>
+      <TextRegular>List restaurants and enable customers to navigate to restaurant details so they can create and place a new order</TextRegular>
+      <TextSemiBold>FR7: Show top 3 products.</TextSemiBold>
+      <TextRegular>Customers will be able to query top 3 products from all restaurants. Top products are the most popular ones, in other words the best sellers.</TextRegular>
+
+      <Pressable
+                onPress={() => {
+                  navigation.navigate('RestaurantDetailScreen', { id: 1 }) // TODO: Change this to the actual restaurant id as they are rendered as a FlatList
+                }}
+                style={({ pressed }) => [
+                  {
+                    backgroundColor: pressed
+                      ? brandPrimaryTap
+                      : brandPrimary
+                  },
+                  styles.button
+                ]}
+            >
+                <TextRegular textStyle={styles.text}>Go to Restaurant Detail Screen</TextRegular>
+            </Pressable>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 50
   },
   button: {
     borderRadius: 8,

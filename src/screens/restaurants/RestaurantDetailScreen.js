@@ -40,23 +40,6 @@ export default function RestaurantDetailScreen ({ navigation, route }) {
             <TextRegular textStyle={styles.description}>{restaurant.restaurantCategory ? restaurant.restaurantCategory.name : ''}</TextRegular>
           </View>
         </ImageBackground>
-
-        <Pressable
-          onPress={() => navigation.navigate('CreateProductScreen', { id: restaurant.id })
-          }
-          style={({ pressed }) => [
-            {
-              backgroundColor: pressed
-                ? brandPrimaryTap
-                : brandPrimary
-            },
-            styles.button
-          ]}>
-          <MaterialCommunityIcons name='plus-circle' color={brandSecondary} size={20} />
-          <TextRegular textStyle={styles.text}>
-            Create product
-          </TextRegular>
-        </Pressable>
       </View>
     )
   }
@@ -83,6 +66,11 @@ export default function RestaurantDetailScreen ({ navigation, route }) {
 
   return (
     <View style={styles.container}>
+      <TextSemiBold>FR2: Restaurants details and menu</TextSemiBold>
+      <TextRegular>Customers will be able to query restaurants details and the products offered by them.</TextRegular>
+      <TextSemiBold>FR3: Add, edit and remove products to a new order</TextSemiBold>
+      <TextRegular>A customer can add several products, and several units of a product to a new order. Before confirming, customer can edit and remove products. Once the order is confirmed, it cannot be edited or removed.</TextRegular>
+      <TextRegular>Keep in mind FR4: Confirm or dismiss new order. You have to allow user to confirm or dismiss the order before sending it to the backend.</TextRegular>
       <FlatList
         ListHeaderComponent={renderHeader}
         ListEmptyComponent={renderEmptyProductsList}
