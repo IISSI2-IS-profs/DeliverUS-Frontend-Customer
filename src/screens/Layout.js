@@ -72,7 +72,7 @@ export default function Layout () {
           if (route.name === 'Restaurants') {
             iconName = 'silverware-fork-knife'
           } else if (route.name === 'My Orders') {
-            iconName = 'view-dashboard'
+            iconName = 'format-list-text'
           } else if (route.name === 'Profile') {
             iconName = 'account-circle'
           }
