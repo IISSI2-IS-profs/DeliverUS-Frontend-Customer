@@ -65,25 +65,34 @@ export default function RestaurantDetailScreen ({ navigation, route }) {
   }
 
   return (
-    <View style={styles.container}>
-      <TextSemiBold>FR2: Restaurants details and menu</TextSemiBold>
-      <TextRegular>Customers will be able to query restaurants details and the products offered by them.</TextRegular>
-      <TextSemiBold>FR3: Add, edit and remove products to a new order</TextSemiBold>
-      <TextRegular>A customer can add several products, and several units of a product to a new order. Before confirming, customer can edit and remove products. Once the order is confirmed, it cannot be edited or removed.</TextRegular>
-      <TextRegular>Keep in mind FR4: Confirm or dismiss new order. You have to allow user to confirm or dismiss the order before sending it to the backend.</TextRegular>
+    <View>
+      <View style={styles.FRHeader}>
+        <TextSemiBold>FR2: Restaurants details and menu.</TextSemiBold>
+        <TextRegular>Customers will be able to query restaurants details and the products offered by them.</TextRegular>
+        <TextSemiBold>FR3: Add, edit and remove products to a new order</TextSemiBold>
+        <TextRegular>A customer can add several products, and several units of a product to a new order. Before confirming, customer can edit and remove products. Once the order is confirmed, it cannot be edited or removed.</TextRegular>
+        <TextRegular>Keep in mind FR4: Confirm or dismiss new order. You have to allow user to confirm or dismiss the order before sending it to the backend.</TextRegular>
+      </View>
+      <View>
       <FlatList
-        ListHeaderComponent={renderHeader}
-        ListEmptyComponent={renderEmptyProductsList}
-        style={styles.container}
-        data={restaurant.products}
-        renderItem={renderProduct}
-        keyExtractor={item => item.id.toString()}
-      />
+          ListHeaderComponent={renderHeader}
+          ListEmptyComponent={renderEmptyProductsList}
+          style={styles.container}
+          data={restaurant.products}
+          renderItem={renderProduct}
+          keyExtractor={item => item.id.toString()}
+        />
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  FRHeader: { // TODO: remove this style and the related <View>. Only for clarification purposes
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 50
+  },
   container: {
     flex: 1
   },
