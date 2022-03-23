@@ -15,6 +15,8 @@ export default function RestaurantsScreen ({ navigation, route }) {
     async function fetchRestaurants () {
 
     }
+
+    fetchRestaurants() // TODO: set restaurants to state
   }, [route])
 
   return (
