@@ -7,6 +7,30 @@ Check https://github.com/IISSI2-IS/DeliverUS-Backend for full DeliverUS app requ
 
 **Complete this project template of the frontend app for customers in order to fulfill customer related requirements.**
 
+These tasks include:
+### 2nd Deliverable:
+#### FR1: Restaurants listing.
+List restaurants and enable customers to navigate to restaurant details so they can create and place a new order
+
+#### FR7: Show top 3 products.
+Customers will be able to query top 3 products from all restaurants. Top products are the most popular ones, in other words the best sellers.
+
+#### FR2: Restaurants details and menu.
+Customers will be able to query restaurants details and the products offered by them.
+
+#### FR5: Listing my confirmed orders.
+A Customer will be able to check his/her confirmed orders, sorted from the most recent to the oldest.
+
+#### FR6: Show order details.
+A customer will be able to look his/her orders up. The system should provide all details of an order, including the ordered products and their prices.
+
+### 3rd Deliverable:
+#### FR3: Add, edit and remove products to a new order.
+A customer can add several products, and several units of a product to a new order. Before confirming, customer can edit and remove products. Once the order is confirmed, it cannot be edited or removed.
+
+Keep in mind **FR4: Confirm or dismiss new order.** You have to allow user to confirm or dismiss the order before sending it to the backend.
+
+
 # Frontend deployment steps:
 1. Accept the group project assignment of your github classroom if you have not done it before. Once you accepted it, you will have your own copy of this project template.
 2. Clone your private repository at your local development environment by opening VScode and clone it by opening Command Palette (Ctrl+Shift+P or F1) and `Git clone` this repository, or using the terminal and running
