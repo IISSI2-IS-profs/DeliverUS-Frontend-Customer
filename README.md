@@ -44,7 +44,15 @@ git config --global user.email "MY_NAME@example.com"
 ```
 In case you are asked if you trust the author, please select yes.
 
-3. Setup your environment file. As explained in labs, it is needed to create a copy of the `.env.example` file, name it `.env` and include your environment variables values, specially your API_BASE_URL (usually http://localhost:3000).
+3. Setup your environment file. As explained in labs, it is needed to create a copy of the `.env.example` file, name it `.env` and include your environment variables values, specially your API_BASE_URL (usually http://localhost:3000 to run the app in the web browser of the same computer).
+   * If you want to connect from your mobile device to your backend, http://localhost:3000 will NOT work because the backend is not running on your mobile device. In order to run your frontend on your device follow these steps:
+     * Check your backend server ip by running: `ipconfig` (or `ifconfig` for Linux and MacOS), in home networks it usually follows the 192.168.YYY.XXX pattern.
+     * Update the `.env` `API_BASE_URL` property with your backend server ip and port, for instance: http://192.168.YYY.XXX:3000
+     * Expo tools caches old `.env` properties' values, so you have to explicitly run the following commands to remove cached values:
+       * stop frontend (Ctrl+C)
+       * remove `.expo` folder in your project root folder
+       * run `expo r -c`
+     * NOTE: Everytime you make any modification on your `.env` (for instance, if your backend server IP changes) file you will need to run these steps again.
 
 4. Install dependencies. Run `npm install` to download and install packages to the current project folder.
 
